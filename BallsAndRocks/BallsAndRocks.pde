@@ -35,8 +35,8 @@ public class LivingRock extends Rock implements Moveable {
     super(x, y);
   }
   void move() {
-    int dx = (int)random(10)-5;
-    int dy = (int)random(10)-5;
+    int dx = (int)random(50)-25;
+    int dy = (int)random(50)-25;
     x += x+dx<0 || x+dx>width? -dx:dx;
     y += y+dy<0 || y+dy>height? -dy:dy; 
     display();

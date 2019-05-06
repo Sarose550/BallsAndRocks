@@ -23,8 +23,10 @@ class Rock extends Thing {
 
   void display() {
     /* ONE PERSON WRITE THIS */
-    fill(139, 69, 19);
-    ellipse(x, y, 7, 7);
+
+    fill(139,69,19);
+    ellipse(x,y,50,45);
+   
   }
 }
 
@@ -35,8 +37,8 @@ public class LivingRock extends Rock implements Moveable {
   void move() {
     int dx = (int)random(10)-5;
     int dy = (int)random(10)-5;
-    x += x+dx<0? x-dx:(x+dx>width? x-dx:x+dx);
-    y += y+dy<0? y-dy:(y+dy>width? y-dy:y+dy);
+    x += x+dx<0 || x+dx>width? -dx:dx;
+    y += y+dy<0 || y+dy>height? -dy:dy; 
     display();
   }
 }

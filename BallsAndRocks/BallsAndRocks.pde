@@ -52,6 +52,10 @@ class Ball extends Thing implements Moveable {
     /* ONE PERSON WRITE THIS */
     fill(255, 0, 588) ; // color
     ellipse(x, y, 50, 50) ; // creation of ball
+    fill(255, 126, 0) ;
+    ellipse(x, y, 25, 25) ; // smaller ball inside sort of like decoration
+    fill(0, 0, 0) ;
+    rect(x, y, 5, 5) ;
   }
 
   void move() {

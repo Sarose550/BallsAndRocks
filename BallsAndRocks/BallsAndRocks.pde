@@ -23,10 +23,9 @@ class Rock extends Thing {
 
   void display() {
     /* ONE PERSON WRITE THIS */
-    fill(139,69,19);
+    fill(130,130,130);
     ellipse(x,y,50,45);
-    
-    
+    ellipse(x,y, 53, 30);
   }
 }
 
@@ -53,44 +52,58 @@ class Ball extends Thing implements Moveable {
     /* ONE PERSON WRITE THIS */
     fill(255, 0, 588) ; // color
     ellipse(x, y, 50, 50) ; // creation of ball
-    
   }
 
   void move() {
     /* ONE PERSON WRITE THIS */
+    x = random(10) + x - 5;
+    y = random(10) + y - 5;
+    if (x < 0) {
+      x = 0;
+    }
+    if (x > 1000) {
+      x = 1000;
+    }
+    if (y < 0) {
+      y = 0;
+    }
+    if (y > 800) {
+      y = 800;
+    }
   }
 }
 
-/*DO NOT EDIT THE REST OF THIS */
 
-ArrayList<Displayable> thingsToDisplay;
-ArrayList<Moveable> thingsToMove;
+  /*DO NOT EDIT THE REST OF THIS */
 
-void setup() {
-  size(1000, 800);
+  ArrayList<Displayable> thingsToDisplay;
+  ArrayList<Moveable> thingsToMove;
 
-  thingsToDisplay = new ArrayList<Displayable>();
-  thingsToMove = new ArrayList<Moveable>();
-  for (int i = 0; i < 10; i++) {
-    Ball b = new Ball(50+random(width-100), 50+random(height-100));
-    thingsToDisplay.add(b);
-    thingsToMove.add(b);
-    Rock r = new Rock(50+random(width-100), 50+random(height-100));
-    thingsToDisplay.add(r);
-  }
-  for (int i = 0; i < 3; i++) {
-    LivingRock m = new LivingRock(50+random(width-100), 50+random(height-100));
-    thingsToDisplay.add(m);
-    thingsToMove.add(m);
-  }
-}
-void draw() {
-  background(255);
+  void setup() {
+    size(1000, 800);
 
-  for (Displayable thing : thingsToDisplay) {
-    thing.display();
+    thingsToDisplay = new ArrayList<Displayable>();
+    thingsToMove = new ArrayList<Moveable>();
+    for (int i = 0; i < 10; i++) {
+      Ball b = new Ball(50+random(width-100), 50+random(height-100));
+      thingsToDisplay.add(b);
+      thingsToMove.add(b);
+      Rock r = new Rock(50+random(width-100), 50+random(height-100));
+      thingsToDisplay.add(r);
+    }
+    for (int i = 0; i < 3; i++) {
+      LivingRock m = new LivingRock(50+random(width-100), 50+random(height-100));
+      thingsToDisplay.add(m);
+      thingsToMove.add(m);
+    }
   }
-  for (Moveable thing : thingsToMove) {
-    thing.move();
+  void draw() {
+    background(255);
+
+    for (Displayable thing : thingsToDisplay) {
+      thing.display();
+    }
+    for (Moveable thing : thingsToMove) {
+      thing.move();
+    }
   }
-}

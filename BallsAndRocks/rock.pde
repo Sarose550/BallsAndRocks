@@ -33,15 +33,11 @@ class Rock extends Thing {
     FloatList holder = new FloatList();
     holder.append(x);
     holder.append(y);
-   
     Loc.append(holder);
+    image = loadImage("rock"+(int)(random(2)+1)+".png");
+    image.resize(90,65);
   }
   
-  Rock(float x, float y, String file) {
-    super(x, y);
-    image = loadImage(file);
-    image.resize(int(x/10),int(y/10));
-  }
   void display() {
     /* ONE PERSON WRITE THIS */
     fill(160, 160, 160);
@@ -58,8 +54,8 @@ public class LivingRock extends Rock implements Moveable {
   float dx, dy;
   float[] directions = new float[]{0.0, 0.5, 1.0, 1.5};
   int movementType;
-  LivingRock(float x, float y, String file) {
-    super(x, y, file);
+  LivingRock(float x, float y) {
+    super(x, y);
     movementType = /*1;*/(int)random(3);
     randX = random(width);
     randY = random(height);

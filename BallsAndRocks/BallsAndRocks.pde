@@ -17,16 +17,18 @@ abstract class Thing implements Displayable {
 }
 
 class Rock extends Thing {
+  PImage image;
   Rock(float x, float y) {
     super(x, y);
   }
-
+  Rock(float x, float y, String file) {
+    super(x, y);
+    image = loadImage(file);
+  }
   void display() {
     /* ONE PERSON WRITE THIS */
     fill(160, 160, 160);
-
-    ellipse(x, y, 53, 40);
-
+    image(image,x,y);
     noStroke();
   }
 }
@@ -37,8 +39,8 @@ public class LivingRock extends Rock implements Moveable {
   float dx, dy;
   float[] directions = new float[]{0.0, 0.5, 1.0, 1.5};
   int movementType;
-  LivingRock(float x, float y) {
-    super(x, y);
+  LivingRock(float x, float y, String file) {
+    super(x, y, file);
     movementType = /*1;*/(int)random(3);
     randX = random(width);
     randY = random(height);
@@ -78,7 +80,6 @@ public class LivingRock extends Rock implements Moveable {
     } else if (y+dy<0 || y+dy>height) {
       direction = -direction;
     }
-    update();
   }
   void randTarget() {
     if (dist(x,y,randX,randY)<1) {
@@ -162,11 +163,11 @@ void setup() {
     Ball b = new Ball(50+random(width-100), 50+random(height-100));
     thingsToDisplay.add(b);
     thingsToMove.add(b);
-    Rock r = new Rock(50+random(width-100), 50+random(height-100));
+    Rock r = new Rock(50+random(width-100), 50+random(height-100), "rock.jpg");
     thingsToDisplay.add(r);
   }
   for (int i = 0; i < 3; i++) {
-    LivingRock m = new LivingRock(50+random(width-100), 50+random(height-100));
+    LivingRock m = new LivingRock(50+random(width-100), 50+random(height-100), "roky.png");
     thingsToDisplay.add(m);
     thingsToMove.add(m);
   }

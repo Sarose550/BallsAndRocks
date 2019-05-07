@@ -28,7 +28,7 @@ class Ball extends Thing implements Moveable {
     /* ONE PERSON WRITE THIS */
     x = x + xspeed;
     y = y + yspeed;
-    println(x,y,xspeed, yspeed);
+   // println(x,y,xspeed, yspeed);
     if (x < 0) {
       x = 0;
       xspeed = -xspeed;

@@ -45,7 +45,8 @@ public class LivingRock extends Rock implements Moveable {
     if (movementType == 0) {
       direction = random(2);
     } else if (movementType == 1) {
-      direction = PVector.angleBetween(new PVector(x,y), new PVector(randX,randY))/(float)Math.PI;
+      dx = (randX-x)/30;
+      dy = (randY-y)/30;
     } else if (movementType == 2) {
       direction = directions[(int)random(4)];
     }
@@ -77,13 +78,14 @@ public class LivingRock extends Rock implements Moveable {
     } else if (y+dy<0 || y+dy>height) {
       direction = -direction;
     }
+    update();
   }
   void randTarget() {
-    update();
     if (dist(x,y,randX,randY)<1) {
       randX = random(width);
       randY = random(height);
-      direction = (float)(Math.atan((randY-y)/(randX-x)));
+      dx = (randX-x)/30;
+      dy = (randY-y)/30;
     }
   }
   void randWalk() {
@@ -94,6 +96,7 @@ public class LivingRock extends Rock implements Moveable {
     if (x+dx<0 || x+dx>width || y+dy<0 || y+dy>height) {
       direction = generateDirections()[(int)random(3)];
     }
+    update();
   }
   void move() {
     if (movementType == 0) {
@@ -103,7 +106,6 @@ public class LivingRock extends Rock implements Moveable {
     } else if (movementType == 2) {
       randWalk();
     }
-    update();
     x+=dx;
     y+=dy;
     display();

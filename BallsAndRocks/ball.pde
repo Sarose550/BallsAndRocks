@@ -1,5 +1,4 @@
-int xspeed = 0;
-int yspeed = 0;
+
 int col1 = int(random(255));
 int col2 = int(random(255));
 int col3 = int(random(255));
@@ -9,10 +8,11 @@ int col3 = int(random(255));
 
 class Ball extends Thing implements Moveable {
   Ball(float x, float y) {
-
+    
     super(x, y);
   }
-
+  int xspeed = int(random(60) - 30);
+int yspeed = int(random(60) - 30);
   void display() {
     /* ONE PERSON WRITE THIS */
     fill(col1, col2, col3) ; // color
@@ -25,19 +25,28 @@ class Ball extends Thing implements Moveable {
 
   void move() {
     /* ONE PERSON WRITE THIS */
-    x = random(10) + x - 5;
-    y = random(10) + y - 5;
+    x = x + xspeed;
+    y = y + yspeed;
+    println(x,y,xspeed, yspeed);
     if (x < 0) {
       x = 0;
+      xspeed = -xspeed;
+      yspeed = (int(random(60)) - 30);
     }
     if (x > 1000) {
       x = 1000;
+      xspeed = -xspeed;
+      yspeed = (int(random(60)) - 30);
     }
     if (y < 0) {
       y = 0;
+      yspeed = -yspeed;
+      xspeed = (int(random(60)) - 30);
     }
     if (y > 800) {
       y = 800;
+      yspeed = -yspeed;
+      xspeed = (int(random(60)) - 30);
     }
   }
 }

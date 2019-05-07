@@ -12,9 +12,12 @@ class Ball extends Thing implements Moveable {
     super(x, y);
   }
   
+ 
+  
   int xspeed = int(random(60) - 30);
   int yspeed = int(random(60) - 30);
   void display() {
+    
     /* ONE PERSON WRITE THIS */
     fill(col1, col2, col3) ; // color
     ellipse(x, y, 50, 50) ; // creation of ball
@@ -34,7 +37,7 @@ class Ball extends Thing implements Moveable {
       xspeed = -xspeed;
       yspeed = (int(random(60)) - 30);
     }
-    if (x > 1000) {
+    if (x > width) {
       x = 1000;
       xspeed = -xspeed;
       yspeed = (int(random(60)) - 30);
@@ -44,7 +47,7 @@ class Ball extends Thing implements Moveable {
       yspeed = -yspeed;
       xspeed = (int(random(60)) - 30);
     }
-    if (y > 800) {
+    if (y > height) {
       y = 800;
       yspeed = -yspeed;
       xspeed = (int(random(60)) - 30);

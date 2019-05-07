@@ -1,8 +1,18 @@
+ArrayList rockspot = new ArrayList();
+
+
 class Rock extends Thing {
   PImage image;
+ 
   Rock(float x, float y) {
+   
     super(x, y);
+    FloatList holder = new FloatList();
+    holder.append(x);
+    holder.append(y);
+    rockspot.append(holder);
   }
+  
   Rock(float x, float y, String file) {
     super(x, y);
     image = loadImage(file);
@@ -15,8 +25,9 @@ class Rock extends Thing {
     
     noStroke();
   }
+  
 }
-
+  
 public class LivingRock extends Rock implements Moveable {
   float direction;
   float randX, randY;

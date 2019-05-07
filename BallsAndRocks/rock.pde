@@ -6,11 +6,13 @@ class Rock extends Thing {
   Rock(float x, float y, String file) {
     super(x, y);
     image = loadImage(file);
+    
   }
   void display() {
     /* ONE PERSON WRITE THIS */
     fill(160, 160, 160);
     image(image,x,y);
+    image.resize(int(x/10),int(y/10));
     noStroke();
   }
 }

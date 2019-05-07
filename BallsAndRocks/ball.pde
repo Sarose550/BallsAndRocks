@@ -11,8 +11,9 @@ class Ball extends Thing implements Moveable {
     
     super(x, y);
   }
+  
   int xspeed = int(random(60) - 30);
-int yspeed = int(random(60) - 30);
+  int yspeed = int(random(60) - 30);
   void display() {
     /* ONE PERSON WRITE THIS */
     fill(col1, col2, col3) ; // color

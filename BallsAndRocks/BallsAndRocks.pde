@@ -34,12 +34,12 @@ void setup() {
     thingsToDisplay.add(b);
     thingsToMove.add(b);
     Rock r = new Rock(50+random(width-100), 50+random(height-100), "rock.jpg");
-   // thingsToDisplay.add(r);
+    thingsToDisplay.add(r);
   }
   for (int i = 0; i < 3; i++) {
     LivingRock m = new LivingRock(50+random(width-100), 50+random(height-100), "roky.png");
-   // thingsToDisplay.add(m);
-   // thingsToMove.add(m);
+    thingsToDisplay.add(m);
+    thingsToMove.add(m);
   }
 }
 void draw() {

@@ -1,5 +1,28 @@
-ArrayList rockspot = new ArrayList();
+class RockSpot{
+  FloatList holder = new FloatList();
+  
+  void append(FloatList incom){
+   
+    for(float i: incom){
+      holder.append(i);
+    }
+  }
+  
+  int size(){
+    return(int(holder.size() / 2));
+  }
+  
+  FloatList get(int index){
+    FloatList temp = new FloatList();
+    temp.append(holder.get(index * 2));
+    temp.append(holder.get((index * 2) + 1));
+    return(temp);
+  }
+  
+  
+}
 
+RockSpot Loc = new RockSpot();
 
 class Rock extends Thing {
   PImage image;
@@ -10,7 +33,8 @@ class Rock extends Thing {
     FloatList holder = new FloatList();
     holder.append(x);
     holder.append(y);
-    rockspot.append(holder);
+   
+    Loc.append(holder);
   }
   
   Rock(float x, float y, String file) {

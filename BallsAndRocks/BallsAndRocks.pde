@@ -26,7 +26,7 @@ ArrayList<Moveable> thingsToMove;
 
 void setup() {
   size(1000, 800);
-
+  
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   for (int i = 0; i < 10; i++) {

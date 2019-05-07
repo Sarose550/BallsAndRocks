@@ -61,9 +61,9 @@ class Ball extends Thing implements Moveable {
 
   void display() {
     /* ONE PERSON WRITE THIS */
-    fill(255, 0, 588) ; // color
+    fill(255, 255, 255) ; // color
     ellipse(x, y, 50, 50) ; // creation of ball
-    fill(255, 126, 0) ;
+    fill(0, 126, 255) ;
     ellipse(x, y, 25, 25) ; // smaller ball inside sort of like decoration
     fill(0, 0, 0) ;
     rect(x, y, 5, 5) ;
@@ -113,7 +113,8 @@ void setup() {
   }
 }
 void draw() {
-  background(255);
+  //background(255);
+  background(51);
 
   for (Displayable thing : thingsToDisplay) {
     thing.display();

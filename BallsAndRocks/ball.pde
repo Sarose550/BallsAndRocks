@@ -1,6 +1,5 @@
 
 
-
 class Ball extends Thing implements Moveable, Collideable {
   Ball(float x, float y) {
     
@@ -16,16 +15,26 @@ class Ball extends Thing implements Moveable, Collideable {
   void display() {
     
     /* ONE PERSON WRITE THIS */
-    fill(col1, col2, col3) ; // color
+    //fill(col1, col2, col3) ; // color
     if(isTouching()){
+      // it's near a rock or it touched it so let's make it bounce off
       fill(255,0,0);
+      ellipse(x, y, 50, 50) ; // creation of ball
+      fill(col1, col2, col3) ;
+      ellipse(x, y, 25, 25) ; // smaller ball inside sort of like decoration
+      fill(0, 0, 0) ;
+      rect(x, y, 5, 5) ;
+      xspeed = int(random(50) - 40);
+      yspeed = int(random(10) - 2) ;
     }
-    ellipse(x, y, 50, 50) ; // creation of ball
-
-    fill(0, 126, 255) ;
-    ellipse(x, y, 25, 25) ; // smaller ball inside sort of like decoration
-    fill(0, 0, 0) ;
-    rect(x, y, 5, 5) ;
+    else {
+      fill(255,255,255) ;
+      ellipse(x, y, 50, 50) ; // creation of ball
+      fill(0, 126, 255) ;
+      ellipse(x, y, 25, 25) ; // smaller ball inside sort of like decoration
+      fill(0, 0, 0) ;
+      rect(x, y, 5, 5) ;
+    }
     
   }
   

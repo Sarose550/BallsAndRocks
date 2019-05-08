@@ -9,6 +9,6 @@ First Day:
 - Ball (Movement) by Jack
 
 Second Day:
-- Rock Changes by Jude & Eric
+- Rock Changes by Jude, Eric & Victoria
 - Ball Changes by Jack and Jesse
 - General Changes by Jesse

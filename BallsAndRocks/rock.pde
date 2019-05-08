@@ -37,8 +37,7 @@ public class LivingRock extends Rock implements Moveable {
   LivingRock(float x, float y) {
     super(x, y);
     locidx = loc.size() - 1;
-    loc.append(x);
-    loc.append(y);
+   
     movementType = /*1;*/(int)random(3);
     randX = random(width);
     randY = random(height);
@@ -56,6 +55,7 @@ public class LivingRock extends Rock implements Moveable {
       loc.set(locidx, x + 30);
     loc.set(locidx + 1, y + 20 );
     image(eyesForRock,x+40,y+20) ;
+     ellipse(x, y, 50,50);
    
    // println(loc.get(locidx),loc.get(locidx + 1), x,y, locidx);   
     
@@ -114,6 +114,6 @@ public class LivingRock extends Rock implements Moveable {
   
     x+=dx;
     y+=dy;
-    display();
+ 
   }
 }

@@ -26,6 +26,7 @@ RockSpot Loc = new RockSpot();
 
 class Rock extends Thing {
   PImage image;
+  PImage eyesForRock ;
  
   Rock(float x, float y) {
    
@@ -36,12 +37,15 @@ class Rock extends Thing {
     Loc.append(holder);
     image = loadImage("rock"+(int)(random(2)+1)+".png");
     image.resize(90,65);
+    eyesForRock = loadImage("eyes.png") ;
+    eyesForRock.resize(25,25) ;
   }
   
   void display() {
     /* ONE PERSON WRITE THIS */
     fill(160, 160, 160);
     image(image,x,y);
+    image(eyesForRock,x+40,y+20) ;
     
     noStroke();
   }

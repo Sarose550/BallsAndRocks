@@ -63,6 +63,9 @@ class Ball extends Thing implements Moveable, Collideable {
     }
   }
   
+  void bounce(){
+    
+  }
   void move() {
     /* ONE PERSON WRITE THIS */
     x = x + xspeed;

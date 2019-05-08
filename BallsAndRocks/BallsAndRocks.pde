@@ -65,7 +65,7 @@ void draw() {
   for (Moveable thing : thingsToMove) {
     thing.move();
   }
-  delay(300);
+  delay(100);
   
   showhitbox();
   //circle(loc.get(21), loc.get(22),70);

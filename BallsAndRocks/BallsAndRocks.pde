@@ -24,7 +24,7 @@ void showhitbox(){
   int i = 0;
   fill(244,244,66);
     while(i < loc.size() /2){
-      circle(loc.get(i * 2), loc.get(i * 2 + 1), 50);
+      ellipse(loc.get(i * 2), loc.get(i * 2 + 1), 50,50);
       println(i);
       i += 1;
     }

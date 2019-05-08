@@ -45,7 +45,6 @@ class Rock extends Thing {
     /* ONE PERSON WRITE THIS */
     fill(160, 160, 160);
     image(image,x,y);
-    image(eyesForRock,x+40,y+20) ;
     
     noStroke();
   }
@@ -74,6 +73,7 @@ public class LivingRock extends Rock implements Moveable {
   }
   void display() {
     super.display();
+    image(eyesForRock,x+40,y+20) ;
     /*fill(0);
     ellipse(randX,randY,10,10);*/
   }

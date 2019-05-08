@@ -48,13 +48,9 @@ class Ball extends Thing implements Moveable, Collideable {
     }
     return(false);
   }
-
-  void move() {
-    /* ONE PERSON WRITE THIS */
-    x = x + xspeed;
-    y = y + yspeed;
-   // println(x,y,xspeed, yspeed);
-    if (x < 0) {
+  
+  void hitwall(){
+   if (x < 0) {
       x = 0;
       xspeed = -xspeed;
       yspeed = (int(random(60)) - 30);
@@ -74,5 +70,16 @@ class Ball extends Thing implements Moveable, Collideable {
       yspeed = -yspeed;
       xspeed = (int(random(60)) - 30);
     }
+  }
+  
+  void bounce(){
+    
+  }
+  void move() {
+    /* ONE PERSON WRITE THIS */
+    x = x + xspeed;
+    y = y + yspeed;
+   // println(x,y,xspeed, yspeed);
+    hitwall();
   }
 }

@@ -52,4 +52,7 @@ void draw() {
   for (Moveable thing : thingsToMove) {
     thing.move();
   }
+  delay(300);
+  fill(244,244,66);
+  circle(loc.get(21), loc.get(22),70);
 }

@@ -1,28 +1,5 @@
-class RockSpot{
-  FloatList holder = new FloatList();
-  
-  void append(FloatList incom){
-   
-    for(float i: incom){
-      holder.append(i);
-    }
-  }
-  
-  int size(){
-    return(int(holder.size() / 2));
-  }
-  
-  FloatList get(int index){
-    FloatList temp = new FloatList();
-    temp.append(holder.get(index * 2));
-    temp.append(holder.get((index * 2) + 1));
-    return(temp);
-  }
-  
-  
-}
 
-RockSpot Loc = new RockSpot();
+FloatList loc = new FloatList();
 
 class Rock extends Thing {
   PImage image;
@@ -31,14 +8,13 @@ class Rock extends Thing {
   Rock(float x, float y) {
    
     super(x, y);
-    FloatList holder = new FloatList();
-    holder.append(x);
-    holder.append(y);
-    Loc.append(holder);
+    loc.append(x);
+    loc.append(y);
     image = loadImage("rock"+(int)(random(2)+1)+".png");
     image.resize(90,65);
     eyesForRock = loadImage("eyes.png") ;
     eyesForRock.resize(25,25) ;
+
   }
   
   void display() {
@@ -52,6 +28,7 @@ class Rock extends Thing {
 }
   
 public class LivingRock extends Rock implements Moveable {
+  int locidx;
   float direction;
   float randX, randY;
   float dx, dy;
@@ -59,6 +36,9 @@ public class LivingRock extends Rock implements Moveable {
   int movementType;
   LivingRock(float x, float y) {
     super(x, y);
+    locidx = loc.size() - 1;
+    loc.append(x);
+    loc.append(y);
     movementType = /*1;*/(int)random(3);
     randX = random(width);
     randY = random(height);
@@ -74,6 +54,9 @@ public class LivingRock extends Rock implements Moveable {
   void display() {
     super.display();
     image(eyesForRock,x+40,y+20) ;
+   
+    println(loc.get(locidx),loc.get(locidx + 1), x,y, locidx);   
+    
     /*fill(0);
     ellipse(randX,randY,10,10);*/
   }
@@ -126,6 +109,8 @@ public class LivingRock extends Rock implements Moveable {
     } else if (movementType == 2) {
       randWalk();
     }
+    loc.set(locidx, x + 30);
+    loc.set(locidx + 1, y + 20 );
     x+=dx;
     y+=dy;
     display();

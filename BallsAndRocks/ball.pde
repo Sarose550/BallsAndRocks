@@ -17,6 +17,13 @@ class Ball extends Thing implements Moveable {
     
     /* ONE PERSON WRITE THIS */
     fill(col1, col2, col3) ; // color
+    int i = 0;
+    while(i < loc.size() /2){
+      if(dist(x,y, loc.get(i * 2), loc.get((i * 2) + 1)) < 70){
+        fill(255,0,0);
+      }
+      i += 1;
+    } 
     ellipse(x, y, 50, 50) ; // creation of ball
 
     fill(0, 126, 255) ;

@@ -1,5 +1,5 @@
 
-FloatList loc = new FloatList();
+FloatList loc = new FloatList(); //abbreviation for sanity
 
 class Rock extends Thing {
   PImage image;
@@ -8,8 +8,8 @@ class Rock extends Thing {
   Rock(float x, float y) {
    
     super(x, y);
-    loc.append(x);
-    loc.append(y);
+    loc.append(x + 45);
+    loc.append(y + (65/2));
     image = loadImage("rock"+(int)(random(2)+1)+".png");
     image.resize(90,65);
     eyesForRock = loadImage("eyes.png") ;
@@ -53,9 +53,11 @@ public class LivingRock extends Rock implements Moveable {
   }
   void display() {
     super.display();
+      loc.set(locidx, x + 30);
+    loc.set(locidx + 1, y + 20 );
     image(eyesForRock,x+40,y+20) ;
    
-    println(loc.get(locidx),loc.get(locidx + 1), x,y, locidx);   
+   // println(loc.get(locidx),loc.get(locidx + 1), x,y, locidx);   
     
     /*fill(0);
     ellipse(randX,randY,10,10);*/
@@ -109,8 +111,7 @@ public class LivingRock extends Rock implements Moveable {
     } else if (movementType == 2) {
       randWalk();
     }
-    loc.set(locidx, x + 30);
-    loc.set(locidx + 1, y + 20 );
+  
     x+=dx;
     y+=dy;
     display();

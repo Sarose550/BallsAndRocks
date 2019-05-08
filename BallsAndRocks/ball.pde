@@ -1,7 +1,7 @@
 
 
 
-class Ball extends Thing implements Moveable {
+class Ball extends Thing implements Moveable, Collideable {
   Ball(float x, float y) {
     
     super(x, y);
@@ -17,13 +17,9 @@ class Ball extends Thing implements Moveable {
     
     /* ONE PERSON WRITE THIS */
     fill(col1, col2, col3) ; // color
-    int i = 0;
-    while(i < loc.size() /2){
-      if(dist(x,y, loc.get(i * 2), loc.get((i * 2) + 1)) < 70){
-        fill(255,0,0);
-      }
-      i += 1;
-    } 
+    if(isTouching()){
+      fill(255,0,0);
+    }
     ellipse(x, y, 50, 50) ; // creation of ball
 
     fill(0, 126, 255) ;
@@ -31,6 +27,17 @@ class Ball extends Thing implements Moveable {
     fill(0, 0, 0) ;
     rect(x, y, 5, 5) ;
     
+  }
+  
+  boolean isTouching(){
+    int i = 0;
+    while(i < loc.size() /2){
+      if(dist(x,y, loc.get(i * 2), loc.get((i * 2) + 1)) < 70){
+        return(true);
+      }
+      i += 1;
+    }
+    return(false);
   }
 
   void move() {

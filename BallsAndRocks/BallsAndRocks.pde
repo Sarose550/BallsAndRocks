@@ -6,6 +6,10 @@ interface Moveable {
   void move();
 }
 
+interface Collideable {
+  boolean isTouching();
+}
+
 abstract class Thing implements Displayable {
   float x, y;//Position of the Thing
 
@@ -16,7 +20,16 @@ abstract class Thing implements Displayable {
   abstract void display();
 }
 
-
+void showhitbox(){
+  int i = 0;
+  fill(244,244,66);
+    while(i < loc.size() /2){
+      circle(loc.get(i * 2), loc.get(i * 2 + 1), 50);
+      println(i);
+      i += 1;
+    }
+    println(loc.size());
+}
 
 
 /*DO NOT EDIT THE REST OF THIS */
@@ -53,6 +66,7 @@ void draw() {
     thing.move();
   }
   delay(300);
-  fill(244,244,66);
-  circle(loc.get(21), loc.get(22),70);
+  
+  showhitbox();
+  //circle(loc.get(21), loc.get(22),70);
 }

@@ -4,29 +4,26 @@ FloatList loc = new FloatList(); //abbreviation for sanity
 class Rock extends Thing {
   PImage image;
   PImage eyesForRock ;
- 
+
   Rock(float x, float y) {
-   
+
     super(x, y);
     loc.append(x + 45);
     loc.append(y + (65/2));
     image = loadImage("rock"+(int)(random(2)+1)+".png");
-    image.resize(90,65);
+    image.resize(90, 65);
     eyesForRock = loadImage("eyes.png") ;
-    eyesForRock.resize(25,25) ;
-
+    eyesForRock.resize(25, 25) ;
   }
-  
+
   void display() {
-    /* ONE PERSON WRITE THIS */
     fill(160, 160, 160);
-    image(image,x,y);
-    
+    image(image, x, y);
+
     noStroke();
   }
-  
 }
-  
+
 public class LivingRock extends Rock implements Moveable {
   int locidx;
   float direction;
@@ -36,9 +33,8 @@ public class LivingRock extends Rock implements Moveable {
   int movementType;
   LivingRock(float x, float y) {
     super(x, y);
-    locidx = loc.size() - 1;
-   
-    movementType = /*1;*/(int)random(3);
+    locidx = loc.size() - 2;
+    movementType = (int)random(3);
     randX = random(width);
     randY = random(height);
     if (movementType == 0) {
@@ -52,15 +48,10 @@ public class LivingRock extends Rock implements Moveable {
   }
   void display() {
     super.display();
-      loc.set(locidx, x + 30);
-    loc.set(locidx + 1, y + 20 );
-    image(eyesForRock,x+40,y+20) ;
-     ellipse(x, y, 50,50);
-   
-   // println(loc.get(locidx),loc.get(locidx + 1), x,y, locidx);   
-    
-    /*fill(0);
-    ellipse(randX,randY,10,10);*/
+    loc.set(locidx, x + 45);
+    loc.set(locidx + 1, y + 65/2);
+    image(eyesForRock, x+40, y+20) ;
+    //println(loc.get(locidx), loc.get(locidx + 1), x, y, locidx);
   }
   void update() {
     dx = (float)(5*Math.cos(direction*Math.PI));
@@ -86,7 +77,7 @@ public class LivingRock extends Rock implements Moveable {
     }
   }
   void randTarget() {
-    if (dist(x,y,randX,randY)<1) {
+    if (dist(x, y, randX, randY)<1) {
       randX = random(width);
       randY = random(height);
       dx = (randX-x)/30;
@@ -111,9 +102,7 @@ public class LivingRock extends Rock implements Moveable {
     } else if (movementType == 2) {
       randWalk();
     }
-  
     x+=dx;
     y+=dy;
- 
   }
 }

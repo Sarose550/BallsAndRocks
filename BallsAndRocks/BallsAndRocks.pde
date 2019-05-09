@@ -20,15 +20,13 @@ abstract class Thing implements Displayable {
   abstract void display();
 }
 
-void showhitbox(){
-  int i = 0;
-  fill(244,244,66);
-    while(i < loc.size() /2){
-      ellipse(loc.get(i * 2), loc.get(i * 2 + 1), 50,50);
-      println(i);
-      i += 1;
-    }
-    println(loc.size());
+void showhitbox() {
+  fill(244, 244, 66);
+  for (int i = 0; i<loc.size(); i+=2) {
+    ellipse(loc.get(i), loc.get(i + 1), 50, 50);
+    //println(i);
+  }
+  //println(loc.size());
 }
 
 
@@ -39,7 +37,7 @@ ArrayList<Moveable> thingsToMove;
 
 void setup() {
   size(1000, 800);
-  
+
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   for (int i = 0; i < 10; i++) {
@@ -66,7 +64,12 @@ void draw() {
     thing.move();
   }
   delay(100);
-  
+
   showhitbox();
   //circle(loc.get(21), loc.get(22),70);
 }
+/*void mouseClicked(){
+  for (Moveable thing : thingsToMove) {
+    thing.move();
+  }
+}*/

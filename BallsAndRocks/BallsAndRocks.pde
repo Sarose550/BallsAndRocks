@@ -41,11 +41,16 @@ void setup() {
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   for (int i = 0; i < 10; i++) {
-    Ball b = new Ball(50+random(width-100), 50+random(height-100));
-    thingsToDisplay.add(b);
-    thingsToMove.add(b);
     Rock r = new Rock(50+random(width-100), 50+random(height-100));
     thingsToDisplay.add(r);
+  }
+  for (int i = 0; i < 5; i ++) {
+    BallTwo t = new BallTwo(50+random(width-100), 50+random(height-100));
+    thingsToDisplay.add(t);
+    thingsToMove.add(t);
+    BallOne o = new BallOne(50+random(width-100), 50+random(height-100));
+    thingsToDisplay.add(o);
+    thingsToMove.add(o);
   }
   for (int i = 0; i < 3; i++) {
     LivingRock m = new LivingRock(50+random(width-100), 50+random(height-100));
@@ -69,7 +74,7 @@ void draw() {
   //circle(loc.get(21), loc.get(22),70);
 }
 /*void mouseClicked(){
-  for (Moveable thing : thingsToMove) {
-    thing.move();
-  }
-}*/
+ for (Moveable thing : thingsToMove) {
+ thing.move();
+ }
+ }*/

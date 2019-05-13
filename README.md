@@ -12,3 +12,9 @@ Second Day:
 - Rock Changes by Jude, Eric & Victoria
 - Ball Changes by Jack and Jesse
 - General Changes by Jesse
+
+
+Third Day:
+-Fixed Collision Errors by Jude, Jesse, and Eric
+-Ball changes by Jack and Victoria
+-Organization by Jesse

@@ -18,3 +18,4 @@ Third Day:
 - Rock Changes by Jude, Eric & Jesse to fix collision
 - Ball Changes by Victoria and Jesse
 - Organization by Jesse
+- 2 classes that extend Ball by Jack
